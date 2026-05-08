@@ -11,6 +11,7 @@ import { useEffect } from 'react'
 import { supabase } from './lib/supabase'
 import useAuthStore from './store/authStore'
 import PostNew from './pages/PostNew'
+import Footer from './components/layout/Footer'
 
 // App funksiyasi ichiga:
 function ScrollToTop() {
@@ -49,6 +50,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/post/new" element={<PostNew />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }
