@@ -1,0 +1,18 @@
+@import './assets/styles/navbar.css';
+@import './assets/styles/auth.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  body {
+    color: #111827;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
