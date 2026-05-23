@@ -71,7 +71,10 @@ function PostNew() {
           description: jobForm.description,
           location: jobForm.city,
           job_type: jobForm.job_type,
-          salary: `${jobForm.salary_min} - ${jobForm.salary_max} сом`,
+          salary: `${Number(jobForm.salary_min).toLocaleString()} - ${Number(jobForm.salary_max).toLocaleString()} сом`,
+          salary_min: +jobForm.salary_min,
+          salary_max: +jobForm.salary_max,
+          category_name: jobForm.category,
           status: 'active'
         })
         if (error) throw error

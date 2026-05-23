@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { login, register, logout, getCurrentUser } from '../services/authService'
+import { login, register, logout, getCurrentUser, loginWithGoogle } from '../services/authService'
 
 const useAuthStore = create((set) => ({
   user: null,
@@ -18,11 +18,32 @@ const useAuthStore = create((set) => ({
     }
   },
 
+  loginWithGoogle: async () => {
+    set({ loading: true, error: null })
+    try {
+      await loginWithGoogle()
+      set({ loading: false })
+    } catch (error) {
+      set({ error: error.message, loading: false })
+    }
+  },
+
   register: async (email, password, fullName) => {
     set({ loading: true, error: null })
     try {
-      const data = await register(email, password, fullName)
-      set({ user: data.user, loading: false })
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { full_name: fullName }
+        }
+      })
+      if (error) throw error
+      
+      // Ro'yxatdan o'tgandan keyin avtomatik login
+      if (data.user) {
+        set({ user: data.user, loading: false })
+      }
     } catch (error) {
       set({ error: error.message, loading: false })
     }

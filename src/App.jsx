@@ -12,6 +12,7 @@ import { supabase } from './lib/supabase'
 import useAuthStore from './store/authStore'
 import PostNew from './pages/PostNew'
 import Footer from './components/layout/Footer'
+import JobDetail from './pages/JobDetail'
 
 // App funksiyasi ichiga:
 function ScrollToTop() {
@@ -49,6 +50,7 @@ function App() {
         <Route path="/auth" element={<Auth />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/post/new" element={<PostNew />} />
+        <Route path="/jobs/:id" element={<JobDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

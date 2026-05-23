@@ -1,11 +1,13 @@
 import { supabase } from '../lib/supabase'
 
+
 // Ro'yxatdan o'tish
 export const register = async (email, password, fullName) => {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
     options: {
+      emailRedirectTo: window.location.origin,
       data: { full_name: fullName }
     }
   })
@@ -33,4 +35,16 @@ export const logout = async () => {
 export const getCurrentUser = async () => {
   const { data: { user } } = await supabase.auth.getUser()
   return user
+}
+
+// Google bilan kirish
+export const loginWithGoogle = async () => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: window.location.origin
+    }
+  })
+  if (error) throw error
+  return data
 }
