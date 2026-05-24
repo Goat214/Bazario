@@ -13,6 +13,8 @@ import useAuthStore from './store/authStore'
 import PostNew from './pages/PostNew'
 import Footer from './components/layout/Footer'
 import JobDetail from './pages/JobDetail'
+import ProductDetail from './pages/ProductDetail'
+import Search from './pages/Search'
 
 // App funksiyasi ichiga:
 function ScrollToTop() {
@@ -51,6 +53,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/post/new" element={<PostNew />} />
         <Route path="/jobs/:id" element={<JobDetail />} />
+        <Route path="/market/:id" element={<ProductDetail />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
       <Footer />
     </BrowserRouter>
