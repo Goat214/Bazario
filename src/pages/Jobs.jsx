@@ -163,6 +163,9 @@ function Jobs() {
                       </span>
                       <span className="jli-tag">📍 {job.location}</span>
                     </div>
+                    <div className="jli-mobile-salary">
+  {job.salary || `${job.salary_min?.toLocaleString()} – ${job.salary_max?.toLocaleString()}`} сом
+</div>
                   </div>
                   <div className="jli-right">
                     <div className="jli-salary">

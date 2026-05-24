@@ -195,4 +195,83 @@
 .empty-sub { font-size: 14px; color: #64748b; margin-bottom: 20px; }
 .market-empty button { padding: 10px 24px; background: #2563eb; color: #fff; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; }
 
-/* Responsiv
+/* Responsiv e */
+@media (max-width: 768px) {
+  .market-header { top: 64px; }
+
+  .market-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .mh-right { width: 100%; }
+  .market-search { flex: 1; width: 100%; }
+
+  /* Filter yuqorida, grid pastda */
+  .market-layout {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .market-filter {
+    position: static;
+    border-radius: 12px;
+  }
+
+  /* Filter 2 ustun */
+  .market-filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+  }
+
+  .filter-header { grid-column: 1 / -1; }
+  .filter-group:nth-child(2) { grid-column: 1; }
+  .filter-group:nth-child(3) { grid-column: 2; }
+  .filter-group:nth-child(4) { grid-column: 1 / -1; }
+  .filter-cta { grid-column: 1 / -1; }
+
+  /* Products 2 ustun */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px;
+  }
+
+  .pc-img { height: 140px; }
+  .pc-body { padding: 10px 12px; }
+  .pc-title { font-size: 13px; }
+  .pc-price { font-size: 15px; }
+  .pc-meta { font-size: 11px; }
+
+  /* List view */
+  .prod-row {
+    grid-template-columns: 56px 1fr auto;
+    padding: 12px 14px;
+  }
+  .pr-arrow { display: none; }
+}
+
+@media (max-width: 480px) {
+  .market-layout { padding: 12px; }
+
+  .market-filter { grid-template-columns: 1fr; }
+  .filter-group:nth-child(2),
+  .filter-group:nth-child(3) { grid-column: 1; }
+
+  .products-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 8px;
+  }
+
+  .pc-img { height: 120px; }
+  .pc-body { padding: 8px 10px; }
+  .pc-title { font-size: 12px; }
+  .pc-price { font-size: 14px; margin-bottom: 4px; }
+
+  .market-header-inner { padding: 0 16px; }
+
+  .prod-row { grid-template-columns: 48px 1fr; }
+  .pr-right { display: none; }
+}
